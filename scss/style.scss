@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e2dcde;
+    //background-color: #19212e;
+    color: #fb8b24;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 10px 40px;
+    border-bottom: 1px solid #19212e;
+    background-color: #000807;
+    -webkit-box-shadow: 0px -1px 28px -4px rgba(0,8,7,1);
+    -moz-box-shadow: 0px -1px 28px -4px rgba(0,8,7,1);
+    box-shadow: 0px -1px 28px -4px rgba(0,8,7,1);
+    margin-bottom: 20px;
+    a {
+        text-decoration: none;
+        color: #fb8b24;
+        font-family: "Noto Serif Old Uyghur", serif;
+        &:hover {
+            color: rgb(255, 102, 0);
+        }
+    }
+    &__title {
+        font-size: 48px;
+        font-family: "Poppins", sans-serif;
+    }
+    .header__search {
+        position: relative;
+        input {
+            padding: 8px;
+            border: none;  
+            border-bottom: 2px solid #fb8b24;
+            background-color: #ffffff00;
+            margin-right: 5px;
+            border-radius: 0px;
+            outline: none;
+            color:#fb8b24;
+            font-size: 16px;
+            padding-right: 30px;
+        }
+        .clear {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            right: 15px;
+            display: none;
+        }
+        button {
+            background: #00000000;
+            color: #fb8b24;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+    }
+}
+
+
+#input:not(:placeholder-shown) + .clear {
+    display: inline; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    min-height: 100vh;
+}
+
+.movies {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    .card {
+        position: relative;
+        width: 250px;
+        min-height: 400px;
+        overflow: hidden;
+        &__image {
+            width: 100%;
+            height: 320px;
+            cursor: pointer;
+            overflow: hidden;
+            -webkit-box-shadow: 1px 0px 17px -3px rgba(0,0,0,0.75);
+            -moz-box-shadow: 1px 0px 17px -3px rgba(0,0,0,0.75);
+            box-shadow: 1px 0px 17px -3px rgba(0,0,0,0.75);
+            &_img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                //filter: contrast(90%);
+                filter: grayscale(20%);
+                &:hover {
+                    filter: contrast(115%);
+                }
+            }
+        }
+        &__description {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        &__title {
+            position: relative;
+            //display: contents;
+            width: 90%;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            padding-right: 30px;
+            line-height: 26px;
+        }
+        &__rate {
+            position: absolute;
+            border: 2px solid #fb8b24;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            right: 10px;
+            top: 10px;
+            font-weight: 600;
+        }
+        &__info {
+            position: absolute;
+            right: -3px;
+            top: 10px;
+            background-color: #06080c;
+            color: #fb8b24;
+            border: 2px solid black;
+            border-right: none;
+            border-radius: 50% 0 0 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition:  transform 0.6s ease;
+            cursor: pointer;
+        }
+        &__overflow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #06080c;
+            z-index: 100;
+            padding: 15px 10px;
+            height: 320px;
+            transform: translateX(101%);
+            z-index: 20;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            overflow: hidden;
+            //word-break: break-word;
+            hyphens: auto;
+            color: #e2dcde;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        &__info-wrap {
+            position: relative;
+            display: block;
+        }
+        
+    }
+    .card__info-wrap:hover .card__overflow {
+        transform: translateX(0%);
+    }
+    .card__info-wrap:hover .card__info {
+        transform: translateX(-250px);
+    }
+}
+
+
+footer {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: #000807;
+    -webkit-box-shadow: 0px -4px 28px -4px rgba(0,8,7,1);
+    -moz-box-shadow: 0px -4px 28px -4px rgba(0,8,7,1);
+    box-shadow: 0px -4px 28px -4px rgba(0,8,7,1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    padding: 0 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    a {
+        text-decoration: none;
+        color: #fb8b24;
+    }
+    .github {
+        i {
+            color: #fb8b24;
+        }
+    }
+    .year {
+        color: #fb8b24;
+    }
+    .rsschool {
+        img {
+            width: 30px;
+            height: 23px;
+            -webkit-box-shadow: -1px 3px 39px -3px rgba(255,255,255,1);
+            -moz-box-shadow: -1px 3px 39px -3px rgba(255,255,255,1);
+            box-shadow: -1px 3px 39px -3px rgba(255,255,255,1);
+            border-radius: 50%;
+        }
+    }
+    a:hover, i:hover, .github:hover {
+        color: rgb(255, 102, 0);
+    }
+}
